@@ -1,0 +1,109 @@
+body {
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+.wrapper {
+   height: 100%;
+}
+.main {
+   height: 100%;
+		// .main__inner
+
+		&__inner {
+         height: 100%;
+         display: flex;
+         align-items: center;
+		}
+
+		// .main__cards
+
+		&__cards {
+         width: 100%;
+         display: flex;
+         justify-content: space-between;
+		}
+
+		// .main__card
+
+		&__card {
+         padding: 30px;
+		}
+}
+.container {
+   max-width: 1200px;
+   position: relative;
+   margin: 0 auto;
+   padding: 0 15px;
+   height: 100%;
+}
+.main-card {
+   width: 30%;
+   background-color: rgb(212, 212, 212);
+		// .main-card_1
+
+		&_1 {
+		}
+
+		// .main-card_2
+
+		&_2 {
+		}
+
+		// .main-card_3
+
+		&_3 {
+		}
+
+		// .main-card__row
+
+		&__row {
+		}
+
+		// .main-card__title
+
+		&__title {
+		}
+
+		// .main-card__price
+
+		&__price {
+		}
+
+		// .main-card__amount
+
+		&__amount {
+		}
+
+      // .main-card__log-area
+
+      &__log-area{
+         height: 50px;
+         background-color: #fff;
+         margin: 30px 0;
+      }
+
+		// .main-card__input
+
+		&__input {
+		}
+
+		// .main-card__radio-area
+
+		&__radio-area {
+		}
+
+		// .main-card__radio-item
+
+		&__radio-item {
+		}
+
+		// .main-card__radio
+
+		&__radio {
+		}
+
+		// .main-card__radio-text
+
+		&__radio-text {
+		}
+}

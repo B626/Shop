@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="./css/style.css">
+   <link rel="stylesheet" href="./css/nullstyle.css">
+</head>
+<body>
+   <div class="wrapper">
+      <div class="main">
+         <div class="container">
+            <div class="main__inner">
+               <div class="main__cards">
+                  <div class="main__card main-card main-card_1">
+                     <div class="main-card__row">
+                        <p class="main-card__title">Баланс</p>
+                        <p class="main-card__price"></p>
+                     </div>
+                     <div class="main-card__row">
+                        <p class="main-card__title">Пиво</p>
+                        <p class="main-card__amount main-card__amount_beer">90шт</p>
+                     </div>
+                     <div class="main-card__row">
+                        <p class="main-card__title">Вино</p>
+                        <p class="main-card__amount main-card__amount_wine">40шт</p>
+                     </div>
+                     <div class="main-card__row">
+                        <p class="main-card__title">Пепсі</p>
+                        <p class="main-card__amount main-card__amount_pepsi">70шт</p>
+                     </div>
+                  </div>
+                  <div class="main__card main-card main-card_2">
+                     <div class="main-card__row">
+                        <p class="main-card__title">Кількість</p>
+                        <input type="number" class="main-card__input">
+                        <div class="main-card__radio-area">
+                           <div class="main-card__radio-item">
+                              <input value="Пиво" name="drink" id="radio1" type="radio" checked class="main-card__radio">
+                              <label for="radio1" class="main-card__radio-text">Пиво</label>
+                           </div>
+                           <div class="main-card__radio-item">
+                              <input value="Вино" name="drink" id="radio2" type="radio" class="main-card__radio">
+                              <label for="radio2" class="main-card__radio-text">Вино</label>
+                           </div>
+                           <div class="main-card__radio-item">
+                              <input value="Пепсі" name="drink" id="radio3" type="radio" class="main-card__radio">
+                              <label for="radio3" class="main-card__radio-text">Пепсі</label>
+                           </div>
+                           <button class="main-card__button main-card__button_add">Додати</button>
+                           <div class="main-card__log-area">
+
+                           </div>
+                           <button class="main-card__button main-card__button_buy">Купити</button>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="main__card main-card main-card_3">
+                     <div class="main-card__row"></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <script src="./script.js"></script>
+</body>
+</html>
