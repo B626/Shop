@@ -76,11 +76,15 @@ body {
 
       // .main-card__log-area
 
-      &__log-area{
-         height: 50px;
-         background-color: #fff;
-         margin: 30px 0;
-      }
+		&__log-area{
+			height: 100px;
+		}
+
+		// .main-card__log-area-text
+
+		&__log-area-text{
+			font-size: 20px;
+		}
 
 		// .main-card__input
 

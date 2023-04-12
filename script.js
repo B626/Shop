@@ -1,8 +1,8 @@
 const shop = (function () {
    let balance = 2000
-   const beerCount = 150
-   const wineCount = 120
-   const pepsiCount = 100
+   let beerCount = 150
+   let wineCount = 120
+   let pepsiCount = 100
    const beerPrice = 30
    const winePrice = 40
    const pepsiPrice = 70
@@ -39,7 +39,7 @@ const shop = (function () {
       getWinePrice() {
          return winePrice
       },
-      buyWine(pepsi) {
+      buyPepsi(pepsi) {
          if (pepsi > pepsiCount) {
             return alert(`Too much pepsi, you cannot order more beer then ${pepsiCount}`)
          }
@@ -59,20 +59,29 @@ const shop = (function () {
 })()
 
 
+
+
 let balancePrice = document.querySelector('.main-card__price')
 balancePrice.innerHTML = `${shop.getBalance()}грн`
-
+   
 let beerAmount = document.querySelector('.main-card__amount_beer')
 beerAmount.innerHTML = `${shop.getBeer()}шт`
-beerAmount.value = 'Пиво'
-
+   
 let wineAmount = document.querySelector('.main-card__amount_wine')
 wineAmount.innerHTML = `${shop.getWine()}шт`
-wineAmount.value = 'Вино'
-
+   
 let pepsiAmount = document.querySelector('.main-card__amount_pepsi')
 pepsiAmount.innerHTML = `${shop.getPepsi()}шт`
-pepsiAmount.value = 'Пепсі'
+
+
+const products = []
+
+function Product(type, count) {
+   this.type = type;
+   this.count = count
+}
+
+
 
 let addButton = document.querySelector('.main-card__button_add')
 
@@ -99,35 +108,45 @@ function addToBasket() {
          break
       }
    }
+   const product = new Product(selectedRadioValue, inputValue)
+   products.push(product)
    let basketRow = document.createElement('p')
-   basketRow.innerHTML = `${selectedRadioValue}: ${inputValue}шт`
-   logArea.append(basketRow.innerHTML)
-   let values = {
-      getAmount() {
-         return inputValue
-      },
-      getDrink() {
-         return selectedRadioValue
-      },
-      getBasket() {
-         return 
-      }
-   }
-   return values
+   basketRow.classList.add('main-card__log-area-text')
+   basketRow.innerHTML = `${product.type}: ${product.count}шт`
+   logArea.append(basketRow)
+   return product
 }
 
 function Buy() {
-   const productData = addToBasket()
-   let amount = productData.getAmount()
-   let drink = productData.getDrink()
-   let balance = shop.getBalance()
-   console.log(amount)
-   console.log(drink)
-   console.log(balance)
+   if (products.length == 0) {
+      alert('Ви нічого не поклали до кошику')
+   }
+   for (let product of products) {
+
+      switch (product.type) {
+         case 'Пиво':
+            shop.buyBeer(product.count)
+            balancePrice.innerHTML = `${shop.getBalance()}грн`
+            beerAmount.innerHTML = `${shop.getBeer()}шт`
+            break
+         case 'Вино':
+            shop.buyWine(product.count)
+            balancePrice.innerHTML = `${shop.getBalance()}грн`
+            wineAmount.innerHTML = `${shop.getWine()}шт`
+            break
+         case 'Пепсі':
+            shop.buyPepsi(product.count)
+            balancePrice.innerHTML = `${shop.getBalance()}грн`
+            pepsiAmount.innerHTML = `${shop.getPepsi()}шт`
+            break
+      }
+      let finalProduct = document.createElement('p')
+      finalProduct.classList.add('main-card__final-text')
+      finalProduct.innerHTML = `${product.type}: ${product.count}шт`
+      finalOutput.append(finalProduct)
+   }
 }
 
-addButton.addEventListener('click', () => {
-   const productData = addToBasket()
-})
+addButton.addEventListener('click', addToBasket)
 
 buyButton.addEventListener('click', Buy)
